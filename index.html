@@ -1,0 +1,61 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Language Test</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="main.js"></script>
+</head>
+<body>
+  <div id="translation-app" class="app-container">
+    <h1>Translation Test</h1>
+
+
+    <div v-if="mode === 'edit'">
+      Word:
+      <input v-model="edit.original">
+      <span class="translation">Translation:</span>
+      <input v-model="edit.translation">
+      <button v-on:click="add" class="fa fa-plus"></button>
+      <div class="button-advance" v-on:click="startTest">
+        Start Test
+        <button class="fa fa-play"></button>
+      </div>
+      <table>
+        <tr><th>Word</th><th>Translation</th></tr>
+        <tr v-for="(translation, original) in words" :key="original">
+          <td>{{ original }}</td><td>{{ translation }}</td><td><button v-on:click="remove(original)"><i class="fa fa-remove"></i></button></td>
+        </tr>
+      </table>
+    </div>
+
+
+    <div v-if="mode === 'test'">
+      <div class="progress-bar-container">
+        <div class="progress-bar" :style="{width: test.progress + '%'}"></div>
+      </div>
+      <span class="question">{{ test.question }}:</span>
+      <input v-model="test.answer">
+      <button class="fa fa-arrow-right" v-on:click="submitTest"></button>
+    </div>
+
+
+    <div v-if="mode === 'results'" class="results">
+      <h2>Results: {{ test.ratio }}%</h2>
+      <div class="button-advance" v-on:click="back">
+        <button class="fa fa-arrow-left"></button>
+        Back
+      </div>
+      <table>
+        <tr><th>Word</th><th>Translation</th><th>Answer</th></tr>
+        <tr v-for="result in test.questions" v-bind:class="{right: result.translation == result.answer, wrong: result.translation != result.answer}">
+          <td>{{ result.original }}</td><td>{{ result.translation }}</td><td>{{ result.answer }}</td>
+        </tr>
+      </table>
+    </div>
+
+
+  </div>
+</body>
+</html>

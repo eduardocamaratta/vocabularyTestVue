@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  background-color: #e0e0e0;
+  font-family: verdana;
+  user-select: none;
+}
+
+.app-container {
+  padding: 10px;
+}
+
+table {
+  min-width: 350px;
+  text-transform: capitalize;
+  border-top: 1px solid grey;
+  border-spacing: 0;
+}
+
+th {
+  text-align: left;
+}
+
+tr {
+  height: 30px;
+}
+
+tr.wrong {
+  background-color: red;
+  color: white;
+}
+
+tr.right {
+  background-color: green;
+  color: white;
+}
+
+.translation {
+  margin-left: 20px;
+}
+
+.question {
+  text-transform: capitalize;
+  padding-right: 10px;
+}
+
+.button-advance {
+  margin: 20px 0;
+  border: 1px solid black;
+  width: 150px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.button-advance:hover {
+  background-color: black;
+  color: white;
+}
+
+.button-advance:hover .fa-play, .button-advance:hover .fa-arrow-left {
+  color: white;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.progress-bar-container {
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 350px;
+  height: 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: green;
+  color: white;
+}
